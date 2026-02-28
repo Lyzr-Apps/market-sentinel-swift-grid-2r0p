@@ -1,0 +1,84 @@
+{
+  "agent_type": "json",
+  "accessor": "json",
+  "has_module_outputs": false,
+  "agent_id": "69a2df73cdda0bd8457f1d6e",
+  "agent_name": "Regulatory & Policy Agent",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "report_date": { "type": "string" },
+      "rbi_updates": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "announcement": { "type": "string" },
+            "market_impact": { "type": "string" },
+            "affected_sectors": { "type": "string" }
+          },
+          "required": ["announcement", "market_impact", "affected_sectors"],
+          "additionalProperties": false
+        }
+      },
+      "sebi_updates": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "regulation": { "type": "string" },
+            "market_impact": { "type": "string" },
+            "affected_sectors": { "type": "string" }
+          },
+          "required": ["regulation", "market_impact", "affected_sectors"],
+          "additionalProperties": false
+        }
+      },
+      "government_policy": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "policy": { "type": "string" },
+            "ministry": { "type": "string" },
+            "market_impact": { "type": "string" },
+            "affected_sectors": { "type": "string" }
+          },
+          "required": ["policy", "ministry", "market_impact", "affected_sectors"],
+          "additionalProperties": false
+        }
+      },
+      "tax_changes": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "change": { "type": "string" },
+            "impact": { "type": "string" }
+          },
+          "required": ["change", "impact"],
+          "additionalProperties": false
+        }
+      },
+      "trade_policy": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "update": { "type": "string" },
+            "impact": { "type": "string" }
+          },
+          "required": ["update", "impact"],
+          "additionalProperties": false
+        }
+      },
+      "regulatory_outlook": { "type": "string" },
+      "key_action_items": {
+        "type": "array",
+        "items": { "type": "string" }
+      }
+    },
+    "required": ["report_date", "rbi_updates", "sebi_updates", "government_policy", "tax_changes", "trade_policy", "regulatory_outlook", "key_action_items"],
+    "additionalProperties": false
+  }
+}

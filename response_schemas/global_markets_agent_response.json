@@ -1,0 +1,128 @@
+{
+  "agent_type": "json",
+  "accessor": "json",
+  "has_module_outputs": false,
+  "agent_id": "69a2df739e54b81854eeb753",
+  "agent_name": "Global Markets Agent",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "report_date": { "type": "string" },
+      "us_markets": {
+        "type": "object",
+        "properties": {
+          "dow_jones": {
+            "type": "object",
+            "properties": {
+              "close": { "type": "string" },
+              "change": { "type": "string" }
+            },
+            "required": ["close", "change"],
+            "additionalProperties": false
+          },
+          "sp500": {
+            "type": "object",
+            "properties": {
+              "close": { "type": "string" },
+              "change": { "type": "string" }
+            },
+            "required": ["close", "change"],
+            "additionalProperties": false
+          },
+          "nasdaq": {
+            "type": "object",
+            "properties": {
+              "close": { "type": "string" },
+              "change": { "type": "string" }
+            },
+            "required": ["close", "change"],
+            "additionalProperties": false
+          },
+          "india_impact": { "type": "string" }
+        },
+        "required": ["dow_jones", "sp500", "nasdaq", "india_impact"],
+        "additionalProperties": false
+      },
+      "european_markets": {
+        "type": "object",
+        "properties": {
+          "summary": { "type": "string" },
+          "india_impact": { "type": "string" }
+        },
+        "required": ["summary", "india_impact"],
+        "additionalProperties": false
+      },
+      "asian_markets": {
+        "type": "object",
+        "properties": {
+          "summary": { "type": "string" },
+          "sgx_nifty": { "type": "string" },
+          "india_impact": { "type": "string" }
+        },
+        "required": ["summary", "sgx_nifty", "india_impact"],
+        "additionalProperties": false
+      },
+      "commodities": {
+        "type": "object",
+        "properties": {
+          "crude_oil": {
+            "type": "object",
+            "properties": {
+              "brent": { "type": "string" },
+              "wti": { "type": "string" },
+              "india_impact": { "type": "string" }
+            },
+            "required": ["brent", "wti", "india_impact"],
+            "additionalProperties": false
+          },
+          "gold": {
+            "type": "object",
+            "properties": {
+              "price": { "type": "string" },
+              "change": { "type": "string" }
+            },
+            "required": ["price", "change"],
+            "additionalProperties": false
+          },
+          "silver": {
+            "type": "object",
+            "properties": {
+              "price": { "type": "string" },
+              "change": { "type": "string" }
+            },
+            "required": ["price", "change"],
+            "additionalProperties": false
+          }
+        },
+        "required": ["crude_oil", "gold", "silver"],
+        "additionalProperties": false
+      },
+      "forex": {
+        "type": "object",
+        "properties": {
+          "usd_inr": { "type": "string" },
+          "dxy": { "type": "string" },
+          "india_impact": { "type": "string" }
+        },
+        "required": ["usd_inr", "dxy", "india_impact"],
+        "additionalProperties": false
+      },
+      "global_events": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "event": { "type": "string" },
+            "india_impact": { "type": "string" },
+            "affected_sectors": { "type": "string" }
+          },
+          "required": ["event", "india_impact", "affected_sectors"],
+          "additionalProperties": false
+        }
+      },
+      "overall_global_sentiment": { "type": "string" }
+    },
+    "required": ["report_date", "us_markets", "european_markets", "asian_markets", "commodities", "forex", "global_events", "overall_global_sentiment"],
+    "additionalProperties": false
+  }
+}

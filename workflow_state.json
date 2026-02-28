@@ -1,0 +1,68 @@
+{
+  "app_name": "Indian Market Financial News Analyzer",
+  "workflow_type": "manager-subagent",
+  "created_at": "2026-02-28",
+  "agents": {
+    "indian_market_agent": {
+      "agent_id": "69a2df739e54b81854eeb751",
+      "name": "Indian Market News Agent",
+      "type": "sub-agent",
+      "provider": "perplexity",
+      "model": "sonar-pro",
+      "capabilities": ["text", "web_search_builtin"],
+      "file_output": false
+    },
+    "global_markets_agent": {
+      "agent_id": "69a2df739e54b81854eeb753",
+      "name": "Global Markets Agent",
+      "type": "sub-agent",
+      "provider": "perplexity",
+      "model": "sonar-pro",
+      "capabilities": ["text", "web_search_builtin"],
+      "file_output": false
+    },
+    "regulatory_agent": {
+      "agent_id": "69a2df73cdda0bd8457f1d6e",
+      "name": "Regulatory & Policy Agent",
+      "type": "sub-agent",
+      "provider": "perplexity",
+      "model": "sonar-pro",
+      "capabilities": ["text", "web_search_builtin"],
+      "file_output": false
+    },
+    "manager_agent": {
+      "agent_id": "69a2df8e48ec00882c2a1907",
+      "name": "Market Report Coordinator",
+      "type": "manager",
+      "provider": "openai",
+      "model": "gpt-4.1",
+      "capabilities": ["text", "file_output"],
+      "file_output": true,
+      "managed_agents": [
+        "69a2df739e54b81854eeb751",
+        "69a2df739e54b81854eeb753",
+        "69a2df73cdda0bd8457f1d6e"
+      ]
+    }
+  },
+  "schedules": {
+    "daily_market_report": {
+      "schedule_id": "69a2df9725d4d77f732f3404",
+      "agent_id": "69a2df8e48ec00882c2a1907",
+      "cron_expression": "0 1 * * 1-5",
+      "timezone": "Asia/Kolkata",
+      "description": "Weekdays at 7:00 AM IST (1:00 AM UTC)",
+      "message": "Generate the daily Indian market financial news analysis report for the previous trading day. Analyze all news, global market movements, and regulatory updates from yesterday and synthesize a comprehensive report for today's trading session.",
+      "is_active": false,
+      "max_retries": 3,
+      "retry_delay": 300
+    }
+  },
+  "primary_agent_id": "69a2df8e48ec00882c2a1907",
+  "response_schemas": {
+    "indian_market_news_agent": "/app/nextjs-project/response_schemas/indian_market_news_agent_response.json",
+    "global_markets_agent": "/app/nextjs-project/response_schemas/global_markets_agent_response.json",
+    "regulatory_policy_agent": "/app/nextjs-project/response_schemas/regulatory_policy_agent_response.json",
+    "market_report_coordinator": "/app/nextjs-project/response_schemas/market_report_coordinator_response.json"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "agent_type": "json",
+  "accessor": "json",
+  "has_module_outputs": true,
+  "agent_id": "69a2df8e48ec00882c2a1907",
+  "agent_name": "Market Report Coordinator",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "report_date": { "type": "string" },
+      "trading_day_relevance": { "type": "string" },
+      "market_sentiment": {
+        "type": "object",
+        "properties": {
+          "overall": { "type": "string" },
+          "confidence": { "type": "string" },
+          "summary": { "type": "string" }
+        },
+        "required": ["overall", "confidence", "summary"],
+        "additionalProperties": false
+      },
+      "sector_impacts": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "sector": { "type": "string" },
+            "impact": { "type": "string" },
+            "drivers": { "type": "string" },
+            "actionable_insight": { "type": "string" }
+          },
+          "required": ["sector", "impact", "drivers", "actionable_insight"],
+          "additionalProperties": false
+        }
+      },
+      "global_influences": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "factor": { "type": "string" },
+            "impact_on_india": { "type": "string" },
+            "affected_sectors": { "type": "string" }
+          },
+          "required": ["factor", "impact_on_india", "affected_sectors"],
+          "additionalProperties": false
+        }
+      },
+      "regulatory_highlights": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "update": { "type": "string" },
+            "market_impact": { "type": "string" }
+          },
+          "required": ["update", "market_impact"],
+          "additionalProperties": false
+        }
+      },
+      "key_takeaways": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "market_data_snapshot": {
+        "type": "object",
+        "properties": {
+          "sensex": { "type": "string" },
+          "nifty": { "type": "string" },
+          "usd_inr": { "type": "string" },
+          "crude_oil": { "type": "string" },
+          "gold": { "type": "string" },
+          "fii_net": { "type": "string" },
+          "dii_net": { "type": "string" }
+        },
+        "required": ["sensex", "nifty", "usd_inr", "crude_oil", "gold", "fii_net", "dii_net"],
+        "additionalProperties": false
+      }
+    },
+    "required": ["report_date", "trading_day_relevance", "market_sentiment", "sector_impacts", "global_influences", "regulatory_highlights", "key_takeaways", "market_data_snapshot"],
+    "additionalProperties": false
+  }
+}

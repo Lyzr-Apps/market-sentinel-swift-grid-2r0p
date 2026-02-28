@@ -1,0 +1,106 @@
+{
+  "agent_type": "json",
+  "accessor": "json",
+  "has_module_outputs": false,
+  "agent_id": "69a2df739e54b81854eeb751",
+  "agent_name": "Indian Market News Agent",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "report_date": { "type": "string" },
+      "market_overview": {
+        "type": "object",
+        "properties": {
+          "sensex": {
+            "type": "object",
+            "properties": {
+              "close": { "type": "string" },
+              "change": { "type": "string" },
+              "percent_change": { "type": "string" }
+            },
+            "required": ["close", "change", "percent_change"],
+            "additionalProperties": false
+          },
+          "nifty": {
+            "type": "object",
+            "properties": {
+              "close": { "type": "string" },
+              "change": { "type": "string" },
+              "percent_change": { "type": "string" }
+            },
+            "required": ["close", "change", "percent_change"],
+            "additionalProperties": false
+          }
+        },
+        "required": ["sensex", "nifty"],
+        "additionalProperties": false
+      },
+      "sector_analysis": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "sector": { "type": "string" },
+            "impact": { "type": "string" },
+            "key_developments": { "type": "string" },
+            "outlook": { "type": "string" }
+          },
+          "required": ["sector", "impact", "key_developments", "outlook"],
+          "additionalProperties": false
+        }
+      },
+      "fii_dii_activity": {
+        "type": "object",
+        "properties": {
+          "fii_net": { "type": "string" },
+          "dii_net": { "type": "string" },
+          "trend_analysis": { "type": "string" }
+        },
+        "required": ["fii_net", "dii_net", "trend_analysis"],
+        "additionalProperties": false
+      },
+      "top_gainers": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "stock": { "type": "string" },
+            "change": { "type": "string" }
+          },
+          "required": ["stock", "change"],
+          "additionalProperties": false
+        }
+      },
+      "top_losers": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "stock": { "type": "string" },
+            "change": { "type": "string" }
+          },
+          "required": ["stock", "change"],
+          "additionalProperties": false
+        }
+      },
+      "corporate_earnings": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "company": { "type": "string" },
+            "highlights": { "type": "string" }
+          },
+          "required": ["company", "highlights"],
+          "additionalProperties": false
+        }
+      },
+      "key_highlights": {
+        "type": "array",
+        "items": { "type": "string" }
+      }
+    },
+    "required": ["report_date", "market_overview", "sector_analysis", "fii_dii_activity", "top_gainers", "top_losers", "corporate_earnings", "key_highlights"],
+    "additionalProperties": false
+  }
+}
